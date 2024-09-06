@@ -14,3 +14,6 @@ Student Studying Computer Engineering at the University of Miami.
 
 Hey! My name is Caitlin Raymond, I'm a sophmore at the University of Miami and I'm studying Computer Engineering. I'm originally from Naples, Florida, and some of my hobbies are listening to music, playing guitar, skating with my friends, and cooking. 
 
+## Porfolio
+
+Check out some cool projects I've been working on both in and out of the classroom
