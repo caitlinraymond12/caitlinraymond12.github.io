@@ -2,7 +2,7 @@
 main:
 
   - title: "Portfolio"
-    url: /_portfolio/portfolio-1.md
+    url: /portfolio/
 
   - title: "Resume"
     url: /files/Resume.pdf
