@@ -1,13 +1,11 @@
 # main links links
 main:
-  - title: "Projects"
-    url: /Projects/
 
   - title: "Portfolio"
-    url: /Portfolio/ 
+    url: /_portfolio/
 
   - title: "Resume"
-    url: /files/Caitlin Raymond Resume.pdf
+    url: /files/Resume.pdf
     
   - title: 
     url: 
