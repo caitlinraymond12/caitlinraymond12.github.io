@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Caitlin Raymond"
 author_profile: true
 redirect_from: 
   - /about/
@@ -9,6 +9,9 @@ redirect_from:
 
 Caitlin Raymond
 
-A data-driven personal website
 ======
 Student Studying Computer Engineering at the University of Miami.
+
+## About
+
+Sophmore from Marco Island, Florida.
