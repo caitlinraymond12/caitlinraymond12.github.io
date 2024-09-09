@@ -298,12 +298,14 @@ void bigint::usub(const bigint & a, const bigint & b, bigint & r)
 
 ```
 
-### Division 
+### Division, Modulo, and Multiplication. 
 
-There are two versions of division. 
+There are two versions of all three of these functions.
 
-One is division between a bigint and another bigint:
 
+The first version is between a bigint and another bigint:
+
+#### Division 
 ```cpp
 void bigint::bigdivision(const bigint & a1, const bigint & b1, bigint & r)
 { r.clear();
@@ -329,9 +331,52 @@ void bigint::bigdivision(const bigint & a1, const bigint & b1, bigint & r)
     r.set(i, step); }
   r.reverse(); }
 ```
+#### Modulo 
+```cpp
+bigint bigint::bigmodulo(const bigint & a1, const bigint & b1)
+{ if(b1.num == 1 && b1.data[0] == 0)
+    throw string("Cannot Take Modulo of 0");
+  bigint a = a1;
+  bigint b = b1;
+  bigint c;
+  for(int shift = a.num - b.num, i = 0; shift >= 0; shift--, i++)
+  { b = b1;
+    b.shift(shift);
+    c = 0;
+    int step = 0;
+    while(true)
+    { c = c + b;
+      step = step + 1;
+      if(c.compare(a) > 0)
+      { c = c - b;
+        step = step - 1;
+        break; } }
+    a = a - c;
+    b = b / 10; }
+  return a; }
+```
 
-One is division between a bigint and an int:
+#### Multiplication
+```cpp
+void bigint::bigmult(const bigint & a, const bigint & b, bigint & r)
+{ r.clear();
+  if(a.neg != b.neg)
+    r.neg = true;
+  int carry = 0;
+  for(int pos = 0; pos < a.num+b.num; pos++)
+  { int total = 0;
+    for(int i = 0; i <= pos; i++)
+    { int j = pos - i;
+      total += a.get(i) * b.get(j); }
+    total += carry;
+    int x = total % 10;
+    r.set(pos, x);
+    carry = total / 10; } }
+```
 
+The second version is between a bigint and an int:
+
+#### Division 
 ```cpp
 void bigint::division(const bigint & a, const int & b1, bigint & r)
 { r.clear();
@@ -349,7 +394,9 @@ void bigint::division(const bigint & a, const int & b1, bigint & r)
     r.set(v, x);
     carry = carry % b; }
   r.reverse(); }
-
+```
+#### Modulo 
+```cpp
 bigint bigint::modulo(const bigint & a, const int & b)
 { if(b == 0)
     throw string("Cannot Take Modulo of 0");
@@ -360,52 +407,28 @@ bigint bigint::modulo(const bigint & a, const int & b)
   return bigint(carry); }
 ```
 
-There are two versions of division because 
-
-### Multiplication
-
-There are two versions of multiplication. 
-
-One is multiplication between a bigint and another bigint:
-
+#### Multiplication
 ```cpp
-    static void bigmult(const bigint & a, const bigint & b, bigint & r)
-    { r.clear();
-      if(a.neg != b.neg)
-        r.neg = true;
-      int carry = 0;
-      for(int pos = 0; pos < a.num+b.num; pos++)
-      { int total = 0;
-        for(int i = 0; i <= pos; i++)
-        { int j = pos - i;
-          total += a.get(i) * b.get(j); }
-        total += carry;
-        int x = total % 10;
-        r.set(pos, x);
-        carry = total / 10; } }
+void bigint::mult(const bigint & a, const int & b1, bigint & r)
+{ r.clear();
+  if(a.neg == true && b1 > 0 || a.neg == false && b1 < 0)
+    r.neg = true;
+  int b = b1;
+  if(b1 < 0)
+    b = -b1;
+  int carry = 0;
+  int total = 0;
+  for(int i = 0; i < a.num || carry > 0; i++)
+  { total = b * a.get(i) + carry;
+    int x = total % 10;
+    r.set(i, x);
+    carry = total / 10; }
+  r.remove();}
 ```
 
-One is mulitiplication between a bigint and an int:
+The reason for the difference is all operations are done in a very particular way, and cannot be generalized across different types. 
 
-```cpp
-    static void mult(const bigint & a, const int & b1, bigint & r)
-    { r.clear();
-      if(a.neg == true && b1 > 0 || a.neg == false && b1 < 0)
-        r.neg = true;
-      int b = b1;
-      if(b1 < 0)
-        b = -b1;
-      int carry = 0;
-      int total = 0;
-      for(int i = 0; i < a.num || carry > 0; i++)
-      { total = b * a.get(i) + carry;
-        int x = total % 10;
-        r.set(i, x);
-        carry = total / 10; } }
-
-```
-
-The bigmult() function is used most of the time, however the mult() function is utilized when taking the factorial of something. This is because the factorial function continually multiplies an int by a bigint over and over again. It does this because it's more efficient to multiply a bigint by a regular int.
+In particular, the mult() function between a bigint and an int is utilized when taking the factorial of something. This is because the factorial function continually multiplies an int by a bigint over and over again. It does this because it's more efficient to multiply a bigint by a regular int.
 
 ### Factorial 
 
@@ -420,7 +443,6 @@ bigint factorial(int n)
   { r = r * i; }
   return r; }
 ```
-
 
 
 How every operation works is every function takes in three parameters, the first two "a" and "b" are the numbers to be added, subtracted, etc., and the last parameter "r" is the result of those two. All three are reference parameters, the first two are reference as to save time by not having to create two new bigints every time the function is called, and the third is a reference so the result will just be put right into the variable.
