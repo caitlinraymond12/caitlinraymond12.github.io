@@ -554,10 +554,23 @@ Because we are performing operations on chars, which only occupy a very small pa
 
 ### Factorial of 700
 
-If you were to try to find the factorial of 700 using variable online calculators...
+If you were to try to find the factorial of 700 using various online calculators...
 
 
 
+ <br/><img src='/images/Calculator.png'>
+ #### Calculator.net
 
+<br/><img src='/images/Desmos.png'>
+ #### Desmos
 
- <br/><img src='/images/Calculator.png'>"
+ <br/><img src='/images/Google.png'>
+ #### Google
+
+ <br/><img src='/images/Symbolab.png'>
+ #### Symbolab
+
+... you would be disappointed. 
+
+However, the calculator I created can calculator 700 ! in less than a second:
+ <br/><img src='/images/700.png'>
