@@ -1,15 +1,15 @@
 ---
-title: "Calculator"
-excerpt: "Project 1. Calculator with unlimited magnitude. Created with C++ using powershell. <br/><img src='/images/SuperCalc.png'>"
+title: "Calculator with Unlimited Magnitude"
+excerpt: "Created with C++ using Windows Powershell. <br/><img src='/images/SuperCalc.png'>"
 collection: portfolio
 ---
 
-# Quick Overview
+## Quick Overview
 I worked on this project over the course of a few months during Spring 2025 as a project for my Data Structures class. The idea of it is to create a calculator that can calculate any number no matter how large, the only limitation being the avaliable memory on the computer you are using. How it works is instead of storing the numbers as integers, which uses 4 bytes of memory space, the numbers are stored as characters, using only 1 byte, and calculations are performed on the numbers using the ASCII value of the character.
 
 
 
-# Creating My Own Vector
+## Creating My Own Vector
 
 In this project, I created and utilized my own vector. It works exaclty the same way as the #include <vector> works. One difference being the vector[x] and vector.at(x) functions. In the #include <vector> heading, using vector[x] will not check first if x is within the range of the vector, and could lead to someone accessing a part of memeory that they shouldn't. In my function, vector[x] will check if that x is within range of the vector, and will throw and error if it is not.
 
@@ -121,7 +121,7 @@ template<typename T>
 ```
 
 
-#### void apply(void f(T))
+### void apply(void f(T))
 
 This class also includes a few extra functions. This function will take a function as input, and apply that function to every part of the vector. 
 
@@ -143,6 +143,49 @@ There are two variations, one when the function takes a reference variable and o
             f(data[i]);
         }
       }
+```
+## Building the Calculator 
+
+Now that I've created my own vector, it's time to create the actual calculator. 
+
+It takes input from the user in Reverse Polish Notation, which means that the operator comes after the operand
+
+### Example
+
+```cpp
+4 3 +
+```
+This would return the result "7", because 4 + 3 is equal to 7. 
+
+```cpp
+10 2 * 5 - 
+```
+This would return the result "15", because 10 * 2 = 20, and 20 - 5 = 15.
+
+
+The following function is what allows the user to continually type in any math probelm they want the calculator to solve.
+
+```cpp
+void input()
+{ bigint answer;
+  while(true)
+  { vector<string> data;
+    string line;
+    getline(cin, line);
+    istringstream in(line);
+    while(true)
+    { string s;
+      in >> s;
+      if(in.fail())
+        break;
+      data.push_back(s); }
+    try
+    { answer = polish(data); }
+    catch(string e)
+    { string error = e;
+      cout << error << "\n";
+      continue; }
+    answer.niceprint(cout); } }
 ```
 
 
