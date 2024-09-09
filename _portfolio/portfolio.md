@@ -145,9 +145,208 @@ The way this calculator works is instead of storing the numbers as integers they
 
 To do this, I created my own bigint class that does just that, and implemented that as the type that all the numbers are stored as. Then, I #include "bigint.h" as a header in my main calculator .cpp file. 
 
+Any number referred to as a "bigint" is a number that is being stored as a char value.
+
+```cpp
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+#include <cctype>
+
+using namespace std;
+
+typedef unsigned char uchar;
+
+
+class bigint
+{ protected:
+    int cap, num;
+    bool neg;
+    uchar *data;
+
+  public:
+    bigint();
+    bigint(const bigint & other);
+    bigint(const string & user_num);
+    bigint(int n);
+    ~bigint();
+    bigint & operator=(int n);
+    bigint & operator=(const bigint & other);
+    bigint & operator=(const string & user_num);
+    void remove();
+    uchar get(int pos) const;
+    void set(int pos, int newnum1);
+    void grow();
+    void print(ostream & out) const;
+    void niceprint(ostream & out) const;
+    int compare(const bigint & other) const;
+    int compare2(const bigint & other) const;
+    int toint();
+    void shift(int step);
+    void reverse();
+    void clear();
+    static void uadd(const bigint & a, const bigint & b, bigint & r);
+    static void usub(const bigint & a, const bigint & b, bigint & r);
+    static void bigmult(const bigint & a, const bigint & b, bigint & r);
+    static void mult(const bigint & a, const int & b, bigint & r);
+    static void add(const bigint & a, const bigint & b, bigint & r);
+    static void subtract(const bigint & a, const bigint & b, bigint & r);
+    static void division(const bigint & a, const int & b1, bigint & r);
+    static bigint modulo(const bigint & a, const int & b);
+    static void bigdivision(const bigint & a1, const bigint & b1, bigint & r);
+    static bigint bigmodulo(const bigint & a1, const bigint & b1);
+    bigint operator+(const bigint & b);
+    bigint operator-(const bigint & b);
+    bigint operator*(const bigint & b);
+    bigint operator*(const int & b);
+    bigint operator/(const int &b);
+    bigint operator/(const bigint &b);
+    bigint operator%(const int &b);
+    bigint operator%(const bigint &b);
+    void operator+=(const int &b);
+    void operator+=(const bigint &b);
+    void operator++(int);
+    void operator--(int);
+    void operator-=(const int &b);
+    void operator-=(const bigint &b);
+    void operator*=(const bigint &b);
+    void operator*=(const int &b);
+    void operator/=(const bigint &b);
+    void operator/=(const int &b);
+    void operator%=(const bigint &b);
+    void operator%=(const int &b);
+ };
+
+
+ostream & operator<<(ostream & out, const bigint & value);
+
+istream & operator>>(istream & in, bigint & variable);
+
+bigint factorial(int n);
+```
+
+### Addition & Subtraction
+Once two numbers are given, first they go through a function to determine if they are both postive, both negative, or one of each. 
+
+From there, it's determined whether addition or subtraction will be used, and if they final result will be positive or negative. 
+
+For example, if a = -31, and b = 3, and I call the subtract function, it will actually end up adding 31 and 3 together using the uadd function, and make the final result negative. 
+
+Positive and Negative Tests:
+
+```cpp
+void bigint::add(const bigint & a, const bigint & b, bigint & r)
+{ if(a.neg == false && b.neg == false)
+    uadd(a, b, r);
+  else if(a.neg == true && b.neg == false)
+    usub(b, a, r);
+  else if(a.neg == false && b.neg == true)
+     usub(a, b, r);
+  else if(a.neg == true && b.neg == true)
+  { uadd(a, b, r);
+    r.neg = true; } }
+
+void bigint::subtract(const bigint & a, const bigint & b, bigint & r)
+{ if(a.neg == false && b.neg == false)
+    usub(a, b, r);
+  else if(a.neg == true && b.neg == false)
+  { uadd(a, b, r);
+    r.neg = true; }
+  else if(a.neg == false && b.neg == true)
+    uadd(a, b, r);
+  else if(a.neg == true && b.neg == true)
+    usub(b, a, r);  }
+
+```
+Actual Functions 
+
+```cpp
+
+void bigint::uadd(const bigint & a, const bigint & b, bigint & r)
+{ r.clear();
+  int carry = 0;
+  int n = max(a.num, b.num);
+  for(int i = 0; i < n; i++)
+  { int total = a.get(i) + b.get(i) + carry;
+    if(total < 10)
+    { r.set(i, total);
+      carry = 0; }
+    else
+    { r.set(i, total - 10);
+      carry = 1; } }
+  r.set(n, carry);
+  r.remove(); }
+
+void bigint::usub(const bigint & a, const bigint & b, bigint & r)
+{ r.clear();
+  if(a.compare2(b) == -1)
+  { usub(b, a, r);
+    r.neg = true; }
+  else
+  { int borrow = 0;
+    int n = max(a.num, b.num);
+    for(int i = 0; i < n; i++)
+    { int x = a.get(i) - b.get(i) - borrow;
+      borrow = 0;
+      if(x < 0)
+      { x = x + 10;
+        borrow = 1; }
+      r.set(i, x); } }
+   r.remove();}
+
+```
 
 
 
+### Multiplication
+
+There are two versions of multiplication. 
+
+One is multiplication between a bigint and another bigint:
+
+```cpp
+    static void bigmult(const bigint & a, const bigint & b, bigint & r)
+    { r.clear();
+      if(a.neg != b.neg)
+        r.neg = true;
+      int carry = 0;
+      for(int pos = 0; pos < a.num+b.num; pos++)
+      { int total = 0;
+        for(int i = 0; i <= pos; i++)
+        { int j = pos - i;
+          total += a.get(i) * b.get(j); }
+        total += carry;
+        int x = total % 10;
+        r.set(pos, x);
+        carry = total / 10; } }
+```
+
+One is mulitiplication between a bigint and an int:
+
+```cpp
+    static void mult(const bigint & a, const int & b1, bigint & r)
+    { r.clear();
+      if(a.neg == true && b1 > 0 || a.neg == false && b1 < 0)
+        r.neg = true;
+      int b = b1;
+      if(b1 < 0)
+        b = -b1;
+      int carry = 0;
+      int total = 0;
+      for(int i = 0; i < a.num || carry > 0; i++)
+      { total = b * a.get(i) + carry;
+        int x = total % 10;
+        r.set(i, x);
+        carry = total / 10; } }
+
+```
+The difference between the two is 
+
+
+
+How every operation works is every function takes in three parameters, the first two "a" and "b" are the numbers to be added, subtracted, etc., and the last parameter "r" is the result of those two. All three are reference parameters, the first two are reference as to save time by not having to create two new bigints every time the function is called, and the third is a reference so the result will just be put right into the variable.
 
 ## Building the Calculator 
 
