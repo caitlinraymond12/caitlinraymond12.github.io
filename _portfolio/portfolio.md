@@ -5,13 +5,13 @@ collection: portfolio
 ---
 
 ## Quick Overview
-I worked on this project over the course of a few months during Spring 2025 as a project for my Data Structures class. The idea of it is to create a calculator that can calculate any number no matter how large, the only limitation being the avaliable memory on the computer you are using. How it works is instead of storing the numbers as integers, which uses 4 bytes of memory space, the numbers are stored as characters, using only 1 byte, and calculations are performed on the numbers using the ASCII value of the character.
+I worked on this project over the course of a few months during Spring 2024 as a project for my Data Structures class. The idea of it is to create a calculator that can calculate any number no matter how large, the only limitation being the avaliable memory on the computer you are using. How it works is instead of storing the numbers as integers, which uses 4 bytes of memory space, the numbers are stored as characters, using only 1 byte, and calculations are performed on the numbers using the ASCII value of the character.
 
 
 
 ## Creating My Own Vector
 
-In this project, I created and utilized my own vector. It works exaclty the same way as the #include <vector> works. One difference being the vector[x] and vector.at(x) functions. In the #include <vector> heading, using vector[x] will not check first if x is within the range of the vector, and could lead to someone accessing a part of memeory that they shouldn't. In my function, vector[x] will check if that x is within range of the vector, and will throw and error if it is not.
+In this project, I created and utilized my own vector. It functions the same way as the #include <vector>, with a few adjustments. One difference being the vector[x] and vector.at(x) functions. In the #include <vector> heading, using vector[x] will not check first if x is within the range of the vector, and could lead to someone accessing a part of memeory that they shouldn't. In my function, vector[x] will check if that x is within range of the vector, and will throw and error if it is not.
 
 
 ```cpp
@@ -129,24 +129,30 @@ There are two variations, one when the function takes a reference variable and o
 
 ```cpp 
       void apply(void f(T&))
-      {
-        for(int i = 0; i < num; i++)
-        {
+      { for(int i = 0; i < num; i++)
             f(data[i]);
-        }
       }
 
-     void apply(void f(T))
-      {
-        for(int i = 0; i < num; i++)
-        {
+      void apply(void f(T))
+      { for(int i = 0; i < num; i++)
             f(data[i]);
-        }
       }
+
 ```
+## Creating a "bigint" Type
+
+The way this calculator works is instead of storing the numbers as integers they are stored as characters, and all the normal operations that you performed on ints are now performed on the ASCII code that each char has. 
+
+To do this, I created my own bigint class that does just that, and implemented that as the type that all the numbers are stored as. Then, I #include "bigint.h" as a header in my main calculator .cpp file. 
+
+
+
+
+
 ## Building the Calculator 
 
-Now that I've created my own vector, it's time to create the actual calculator. 
+
+Now that I've created my own vector and bigint class, it's time to create the actual calculator. 
 
 It takes input from the user in Reverse Polish Notation, which means that the operator comes after the operand
 
@@ -162,7 +168,7 @@ This would return the result "7", because 4 + 3 is equal to 7.
 ```
 This would return the result "15", because 10 * 2 = 20, and 20 - 5 = 15.
 
-
+### User Input 
 The following function is what allows the user to continually type in any math probelm they want the calculator to solve.
 
 ```cpp
