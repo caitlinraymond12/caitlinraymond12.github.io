@@ -561,19 +561,19 @@ If you were to try to find the factorial of 700 using various online calculators
 
  <br/><img src='/images/Calculator.png'>
  
-#### Calculator.net
+
 
  <br/><img src='/images/Google.png'>
  
-#### Google
+
 
  <br/><img src='/images/Desmos.png'>
  
-#### Desmos
+
 
  <br/><img src='/images/Symbolab.png'>
  
-#### Symbolab
+
 
 
 ... you might be disappointed. 
