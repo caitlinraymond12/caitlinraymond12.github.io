@@ -552,27 +552,28 @@ How all of the calculations work is it takes off either one number or two number
 
 Because we are performing operations on chars, which only occupy a very small part of our memory, we are able to perform operations on huge numbers in an incredibly short amount of time. 
 
+
+
+
 ### Factorial of 700
 
 If you were to try to find the factorial of 700 using various online calculators...
 
-
-
  <br/><img src='/images/Calculator.png'>
  
- #### Calculator.net
-
-<br/><img src='/images/Desmos.png'>
- 
- #### Desmos
+#### Calculator.net
 
  <br/><img src='/images/Google.png'>
  
- #### Google
+#### Google
+
+ <br/><img src='/images/Desmos.png'>
+ 
+#### Desmos
 
  <br/><img src='/images/Symbolab.png'>
  
- #### Symbolab
+#### Symbolab
 
 
 ... you might be disappointed. 
