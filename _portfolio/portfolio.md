@@ -583,14 +583,13 @@ If you were to try to find the factorial of 700 using various online calculators
 
 
 However, the calculator I created can calculator 700 ! in less than a second:
-
  <br/><img src='/images/700.png'>
 
 
 ## Examples
 
 #### Addition 
-
+<br/><img src='/images/Addition.png'>
 
 #### Subtraction
 <br/><img src='/images/Subtraction.png'>
