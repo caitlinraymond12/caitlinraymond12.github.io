@@ -298,7 +298,69 @@ void bigint::usub(const bigint & a, const bigint & b, bigint & r)
 
 ```
 
+### Division 
 
+There are two versions of division. 
+
+One is division between a bigint and another bigint:
+
+```cpp
+void bigint::bigdivision(const bigint & a1, const bigint & b1, bigint & r)
+{ r.clear();
+  if(b1.num == 1 && b1.data[0] == 0)
+    throw string("Cannot Divide by 0");
+  bigint a = a1;
+  bigint b = b1;
+  bigint c;
+  for(int shift = a.num - b.num, i = 0; shift >= 0; shift--, i++)
+  { b = b1;
+    b.shift(shift);
+    c = 0;
+    int step = 0;
+    while(true)
+    { c = c + b;
+      step = step + 1;
+      if(c.compare(a) > 0)
+      { c = c - b;
+        step = step - 1;
+        break; } }
+    a = a - c;
+    b = b / 10;
+    r.set(i, step); }
+  r.reverse(); }
+```
+
+One is division between a bigint and an int:
+
+```cpp
+void bigint::division(const bigint & a, const int & b1, bigint & r)
+{ r.clear();
+  if(b1 == 0)
+    throw string("Cannot Divide by 0");
+  if(a.neg == true && b1 > 0 || a.neg == false && b1 < 0)
+    r.neg = true;
+  int b = b1;
+  if(b1 < 0)
+    b = -b1;
+  int carry = 0;
+  for(int i = a.num - 1, v = 0; i >= 0; i--, v++)
+  { carry = carry * 10 + a.get(i);
+    int x = carry / b;
+    r.set(v, x);
+    carry = carry % b; }
+  r.reverse(); }
+
+bigint bigint::modulo(const bigint & a, const int & b)
+{ if(b == 0)
+    throw string("Cannot Take Modulo of 0");
+  int carry = 0;
+  for(int i = a.num - 1, v = 0; i >= 0; i--, v++)
+  { carry = carry * 10 + a.get(i);
+    carry = carry % b; }
+  return bigint(carry); }
+```
+
+There are two versions of division because 
 
 ### Multiplication
 
@@ -342,7 +404,22 @@ One is mulitiplication between a bigint and an int:
         carry = total / 10; } }
 
 ```
-The difference between the two is 
+
+The bigmult() function is used most of the time, however the mult() function is utilized when taking the factorial of something. This is because the factorial function continually multiplies an int by a bigint over and over again. It does this because it's more efficient to multiply a bigint by a regular int.
+
+### Factorial 
+
+```cpp
+bigint factorial(int n)
+{ if(n == 0)
+    return bigint(1);
+  if(n < 0)
+    throw string("Cannot take Factorial of Negative");
+  bigint r = 1;
+  for(int i = 1; i <= n; i++)
+  { r = r * i; }
+  return r; }
+```
 
 
 
