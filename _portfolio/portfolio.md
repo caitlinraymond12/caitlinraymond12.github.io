@@ -227,12 +227,18 @@ istream & operator>>(istream & in, bigint & variable);
 bigint factorial(int n);
 ```
 
+### Operations 
+
+How every operation works is every function takes in three parameters, the first two "a" and "b" are the numbers to be added, subtracted, etc., and the last parameter "r" is the result of those two. All three are reference parameters, the first two are reference as to save time by not having to create two new bigints every time the function is called, and the third is a reference so the result will just be put right into the variable.
+
+
 ### Addition & Subtraction
 Once two numbers are given, first they go through a function to determine if they are both postive, both negative, or one of each. 
 
-From there, it's determined whether addition or subtraction will be used, and if they final result will be positive or negative. 
+From there, it's determined whether addition or subtraction will be used. For example, if we are to add a positive and a negative number, the subtraction function will be called.
 
-For example, if a = -31, and b = 3, and I call the subtract function, it will actually end up adding 31 and 3 together using the uadd function, and make the final result negative. 
+These functions also determine if the final result will be negative or positive.  
+
 
 Positive and Negative Tests:
 
@@ -445,12 +451,12 @@ bigint factorial(int n)
 ```
 
 
-How every operation works is every function takes in three parameters, the first two "a" and "b" are the numbers to be added, subtracted, etc., and the last parameter "r" is the result of those two. All three are reference parameters, the first two are reference as to save time by not having to create two new bigints every time the function is called, and the third is a reference so the result will just be put right into the variable.
+
 
 ## Building the Calculator 
 
 
-Now that I've created my own vector and bigint class, it's time to create the actual calculator. 
+Now that I've created my own vector and bigint class, it's time to create the actual calculator.  
 
 It takes input from the user in Reverse Polish Notation, which means that the operator comes after the operand
 
@@ -492,6 +498,66 @@ void input()
     answer.niceprint(cout); } }
 ```
 
+In the input function, it takes in user input and adds it to a vector. That vector is then passed into the polish() fucntion, where is when all the calculating happens. 
+
+In this function, it looks at every object in the vector. If it is an operator, it calls the appropiate operator. If it's a variable, the variable gets added to the vector var. If it is just a number, it gets added to the number vector. 
+
+```cpp
+bigint polish(vector<string> input)
+{ nums.clear();
+  bigint x, y;
+  int i = 0;
+  while(i < input.size())
+  { string compare = input[i];
+
+    if(compare == "=")
+    { equals(input, i);
+      continue; }
+
+    else if(compare == "+"  || compare == "-"  ||
+            compare == "*"  || compare == "/"  ||
+            compare == "%"  || compare == "?" )
+      op(compare, x, y);
+
+    else if(compare == "+="  || compare == "-="  ||
+            compare == "*="  || compare == "/="  ||
+            compare == "%=")
+    { op2(compare, x, y);
+      equals2(input[0], i); }
+
+    else if(compare == "++" || compare == "--")
+    { op3(compare, x);
+      equals2(input[0], i); }
+
+    else if(compare == "!")
+    { x = nums.back();
+      nums.pop_back();
+      int a = x.toint();
+      nums.push_back(factorial(a)); }
+
+    else if(compare[0] >= 'a' && compare[0] <= 'z' ||
+            compare[0] >= 'A' && compare[0] <= 'Z')
+      var(compare);
+
+     else
+       num(compare);
+
+  i = i + 1; }
+  return period(); }
+  ```
+
+How all of the calculations work is it takes off either one number or two numbers from the "num" vector depending on the operator, performs the desired operation on it, and then puts the result back onto the number vector. 
+
+## Unlimited Magnitude 
+
+Because we are performing operations on chars, which only occupy a very small part of our memory, we are able to perform operations on huge numbers in an incredibly short amount of time. 
+
+### Factorial of 700
+
+If you were to try to find the factorial of 700 using variable online calculators...
 
 
 
+
+
+ <br/><img src='/images/Calculator.png'>"
