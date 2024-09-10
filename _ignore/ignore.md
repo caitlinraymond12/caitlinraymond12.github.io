@@ -1,7 +1,7 @@
 ---
-title: "Cooking"
-collection: cooking
-permalink: /cooking
+title: 
+collection: 
+permalink: 
 ---
 
 # Custom Page
