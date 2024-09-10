@@ -44,6 +44,22 @@ Hey! My name is Caitlin Raymond, I'm a sophmore at the University of Miami and I
 
 
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Create a new paragraph element
+        var p = document.createElement('p');
+        
+        // Set its text content
+        p.textContent = 'JavaScript is working!';
+        
+        // Append the paragraph to the body
+        document.body.appendChild(p);
+    });
+</script>
+
+
+
+
 ### Skating 
 
 <iframe src="https://giphy.com/embed/3o7qDFoXt22QsZVey4" width="480" height="269" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/kingoftheroad-viceland-king-of-the-road-3o7qDFoXt22QsZVey4">via GIPHY</a></p>
