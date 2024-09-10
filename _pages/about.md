@@ -18,7 +18,7 @@ Hey! My name is Caitlin Raymond, I'm a sophmore at the University of Miami and I
 
 ### Music 
 
-<a href="music.md">Top Albums</a>
+I love music and am always trying to expose myseslf to as much as possible. I try to listen to at least one new album a week, and have it on repeat while I'm studying, walking to class, driving, everything. If I am doing an activty where I can listen to music, I will. Navigate to the "Music" tab to see what I've been listening to recently!
 
 
 

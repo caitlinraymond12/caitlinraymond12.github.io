@@ -214,6 +214,9 @@ collections:
   cooking:
     output: true
     permalink: /:collection/:path/
+  music:
+    output: true
+    permalink: /:collections/:path/
 
 
 
@@ -280,6 +283,14 @@ defaults:
       layout: single
       author_profile: true
       share: true
+  #_music
+  - scope:
+      path: ""
+      type: music
+    values:
+      layout: single
+      author_profile: true
+      
 
 
 # Sass/SCSS
