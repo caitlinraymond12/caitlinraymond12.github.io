@@ -1,8 +1,6 @@
 ---
-layout: default
 title: "Cooking"
-permalink: /cooking/
-author_profile: true
+collection: cooking
 ---
 
 # Custom Page
