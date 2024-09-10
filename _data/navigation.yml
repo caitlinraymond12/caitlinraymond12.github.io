@@ -10,8 +10,8 @@ main:
   - title: "Cooking"
     url: /cooking/
         
-  - title: "Talks"
-    url: /talks/
+  - title: 
+    url: 
     
   - title: "Music"
     url: /music/

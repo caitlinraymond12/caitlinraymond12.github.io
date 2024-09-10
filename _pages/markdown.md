@@ -19,7 +19,7 @@ redirect_from:
   * _teaching/
   * _talks/
   * _cooking/
-  * _music/s
+  * _music/
 * Footer: _includes/footer.html
 * Static files (like PDFs): /files/
 * Profile image (can set in _config.yml): images/profile.png
