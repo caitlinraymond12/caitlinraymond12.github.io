@@ -18,7 +18,7 @@ Hey! My name is Caitlin Raymond, I'm a sophmore at the University of Miami and I
 
 ### Music 
 
-<a href="music.html">Product Catalog</a>
+<a href="music.md">Top Albums</a>
 
 
 
