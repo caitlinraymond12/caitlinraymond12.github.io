@@ -2,6 +2,7 @@
 layout: default
 title: "Cooking"
 permalink: /cooking/
+author_profile: true
 ---
 
 # Custom Page
