@@ -16,27 +16,7 @@ Hey! My name is Caitlin Raymond, I'm a sophmore at the University of Miami and I
 
 ### Music 
 
----
-title: "Daily Picture"
-output: html_document
----
 
-## Daily Picture
-
-```{r, echo=FALSE}
-# R code to calculate the day of the year
-today <- Sys.Date()
-day_of_year <- as.numeric(format(today, "%j"))
-
-# List of image filenames
-images <- c('image1.jpg', 'image2.jpg', 'image3.jpg')
-
-# Determine the image index
-image_index <- (day_of_year - 1) %% length(images) + 1
-image_src <- paste0('path/to/your/folder/', images[image_index])
-
-# Output the image URL for use in HTML
-image_src
 
 
 
