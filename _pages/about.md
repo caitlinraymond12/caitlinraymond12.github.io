@@ -16,14 +16,35 @@ Hey! My name is Caitlin Raymond, I'm a sophmore at the University of Miami and I
 
 ### Music 
 
-<!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Picture</title>
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
 <body>
-
-<h1> TEST </h1>
-
-<p> my first paragr </p>
-
+    <img id="dailyPicture" src="" alt="Daily Picture">
+    <script>
+       
+        const images = ['images/Calculator.png', 'images/Desmos.png];
+        
+        
+        const today = new Date();
+        const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+        
+        
+        const imageIndex = dayOfYear % images.length;
+        const imageSrc = 'path/to/your/folder/' + images[imageIndex];
+        
+        
+        document.getElementById('dailyPicture').src = imageSrc;
+  </script>
 </body>
 </html>
 
