@@ -112,20 +112,32 @@ template<typename T>
           return true;
         return false; }
 
+
+```
+
+This class also includes a few extra functions.  
+
+### T reduce(int f(T,T), T x)
+
+This function will take a function and a variable as an input, and apply the function to the variable over and over again until just one object is left. 
+
+Example: This function can take (add(a, b), 0) as parameters, and will continually begin by adding 0 and data[0] together. Then adding that result to data[1], and continue until every object in the vector has been added together. 
+
+
+```cpp
       T reduce(int f(T, T), T x)
       { T r = x;
         for(int i = 0; i < num; i++)
         { r = f(data[i], r); }
         return r; }
-
 ```
-
 
 ### void apply(void f(T))
 
-This class also includes a few extra functions. This function will take a function as input, and apply that function to every part of the vector. 
-
+This function will take a function as input, and apply that function to every part of the vector. 
 There are two variations, one when the function takes a reference variable and one when it takes a regular variable.
+
+Example: This function could take the square root of every number in the vector.
 
 ```cpp 
       void apply(void f(T&))
