@@ -1,6 +1,7 @@
 ---
 title: "Cooking"
 collection: cooking
+permalink: /cooking
 ---
 
 # Custom Page
