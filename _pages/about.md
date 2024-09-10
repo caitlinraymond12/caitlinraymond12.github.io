@@ -16,37 +16,28 @@ Hey! My name is Caitlin Raymond, I'm a sophmore at the University of Miami and I
 
 ### Music 
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Picture</title>
-    <style>
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
-</head>
-<body>
-    <img id="dailyPicture" src="" alt="Daily Picture">
-    <script>
-       
-        const images = ['images/Calculator.png', 'images/Desmos.png];
-        
-        
-        const today = new Date();
-        const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-        
-        
-        const imageIndex = dayOfYear % images.length;
-        const imageSrc = 'path/to/your/folder/' + images[imageIndex];
-        
-        
-        document.getElementById('dailyPicture').src = imageSrc;
-  </script>
-</body>
-</html>
+---
+title: "Daily Picture"
+output: html_document
+---
+
+## Daily Picture
+
+```{r, echo=FALSE}
+# R code to calculate the day of the year
+today <- Sys.Date()
+day_of_year <- as.numeric(format(today, "%j"))
+
+# List of image filenames
+images <- c('image1.jpg', 'image2.jpg', 'image3.jpg')
+
+# Determine the image index
+image_index <- (day_of_year - 1) %% length(images) + 1
+image_src <- paste0('path/to/your/folder/', images[image_index])
+
+# Output the image URL for use in HTML
+image_src
+
 
 
 ### Skating 
