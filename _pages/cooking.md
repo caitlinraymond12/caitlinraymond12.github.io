@@ -25,7 +25,7 @@ This is one of my favorite dishes I've made. I made everything from scratch, inc
 <br/><img src='/images/Cooking/naan3.jpg'>
 <br/><img src='/images/Cooking/naan4.jpg'>
 
-
+It took a while, and after many failed attempts, I was able to make naan correctly. 
 
 
 **Quick History**
