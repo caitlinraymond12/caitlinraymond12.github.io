@@ -361,6 +361,16 @@ totaltrips %>%
   arrange(usertype) %>%
   ggplot(aes(x = usertype, y = average_duration)) +
   geom_col(aes(fill = colors))
+
+# casual/member age distribution
+years <- unique(totaltrips$birthyear)
+sort(years)
+sum(totaltrips$birthyear == 2014, na.rm = TRUE)
+# there are 5 brithdays in 2014. They are all in the member category, as the youngest birhtday in the casual category was 2003.
+# birthyears range from 1759 - 2014. This data is from 2019, so we'll ignore any birhtday older than 100 years old.
+
+totaltrips_under18 = totaltrips[totaltrips$birthyear >= 1919 & totaltrips$birthyear <= 2003,]
+ggplot(totaltrips_under18, aes(birthyear)) + geom_bar(aes(fill=usertype), position = "dodge")
 ```
 
 **Counts for each day of week divided by Casual Riders and Annual Members:**
@@ -372,6 +382,19 @@ totaltrips %>%
 **Average duration for Casual Riders and Annual Members:**
 <br/><img src='/images/Average Trip Duration.png'>
 
+**Age Distribution for Casual Riders and Annual Members:**
+<br/><img src='/images/Age Distribution.png'>
 
 ## Act
 
+How can these insights be applied to the business objective?
+
+Our objective is to convert casual riders into annual members. Throughout this study, we investigated the differences between the two groups. What we found, is that annual members tend to use the bikes as a part of their daily life, while casual riders tend to only use it on specfic ossaciaions. Annual members are likely older and maybe use the bikes with their family, whie casual riders are usually younger. Males make up a large percentage of annual members. 
+
+We can apply these insights by creating a marketing campaign that targets this demographic and influences them to become annual members. 
+
+The ad should:
+* Target males, people that live in the city, families.
+* Emphasis the convience of taking a quick ride. 
+
+The ad should target males because males are more likely to be annual members. It should also target people that live in the city, because these are people that have a reason to get around the city on a daily basis, not just on the weekends. Because they live there, they likely have friends within the city, favorite stores in the city, and work within the city. All of these things they would easily be able to get to by using these bikes. Finally, the ad should target people that are slightly older, and even families. These are the people with careers that could take these bikes to work to use these bikes to go out with their children. The ad should also emphasis how easily annual members can take out a bike, get somewhere quick, and not worry about the daily bike fees or the stress of driving through traffic. Annual members tended to have a shorter average trip duration, which shows how these bikes could be a casual part of a member's daily life.

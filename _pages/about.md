@@ -15,10 +15,9 @@ Student Studying Computer Engineering at the University of Miami.
 Hey! My name is Caitlin Raymond, I'm a sophmore at the University of Miami and I'm studying Computer Engineering. I'm originally from Naples, Florida, and some of my hobbies include:
 
 
-
 ### Music 
 
-I love music and am always trying to expose myseslf to as much as possible. I try to listen to at least one new album a week, and have it on repeat while I'm studying, walking to class, driving, everything. If I am doing an activty where I can listen to music, I will. 
+I love music and am always trying to expose myseslf to as much as possible. I try to listen to at least one new album a week, and have it on repeat while I'm studying, walking to class, driving, everything. If I am doing an activty where I can listen to music, I will. Music is such an incredible way to connect with people, and I love sharing songs with freinds and listening to their recommendations. 
 
 
 ### Skating 
@@ -36,4 +35,4 @@ Skating has always been a huge part of my life, I've been skating since I was 10
 
 ## Porfolio
 
-Check out some cool projects I've been working on both in and out of the classroom
+Check out some cool projects I've been working on both in and out of the classroom!
