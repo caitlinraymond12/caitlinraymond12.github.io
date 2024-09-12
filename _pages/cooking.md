@@ -28,6 +28,15 @@ This is one of my favorite dishes I've made. I made everything from scratch, inc
 
 
 
+**Quick History**
+Chicken tikki masala is one of the dishes people heavily assosicate with indian cuisine, but the story of its origin is heavily debated. One widely accepted story of its origin was that it was created by a Bengali chef in Gasglow, Scotland. A customer ordered chicken curry, but complained it was too dry, so the chef, Ali Ahmed Aslam, combined the chicken curry with a can of tomato soup, and created the Chicken Tikki Masala dish. However, some others believe it was simply derived from its sister dish, butter chicken, in northen India. 
 
 
+## Mushroom Risotto
 
+<br/><img src='/images/Cooking/Risotto.JPG'>
+
+This is a dish I made as a request from one of my friends, althought having no experience cooking risotto before. It's a very slow process, taking about an hour in total to complete. The essenece of this dish is you slowly cook arborio rice with chicken stock. You add a little bit, stir until its fully absored, then add a little more, stir, and repeat this process until it's fully cooked. The reason why arborio rice is used is because it has a high starch content, which helps to create a thick, creamy "sauce" for the risotto, as well as prevent it from becoming mushy. The mushrooms were cooked in a seperate pan and added in at the very end. 
+
+**Quick History**
+In the 14th century, rice was brought into Northern Italy and Northern Spain by the Arabs. The climate of these areas ended up being great to grow short-grained rice in, the type that is used in risotto. Slow-cooking food was a common way to enjoy any dish in these reasons, and people began to slow cook rice in this way, slowly boiling it with broth until it was ready to eat. In Italty, Risotto is served as a main dish or simply as a starter dish. 
