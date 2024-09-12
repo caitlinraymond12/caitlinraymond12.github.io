@@ -21,10 +21,7 @@ This is one of my favorite dishes I've made. I made everything from scratch, inc
 
 **The naan making process**
 
-<br/><img src='/images/Cooking/naan1.JPG'>
-<br/><img src='/images/Cooking/naan2.JPG'>
-<br/><img src='/images/Cooking/naan3.JPG'>
-<br/><img src='/images/Cooking/naan4.JPG'>
+
 
 
 
@@ -34,7 +31,7 @@ Chicken tikki masala is one of the dishes people heavily assosicate with indian 
 
 ## Mushroom Risotto
 
-<br/><img src='/images/Cooking/Risotto.JPG'>
+<br/><img src='/images/Cooking/Risotto.jpg'>
 
 This is a dish I made as a request from one of my friends, althought having no experience cooking risotto before. It's a very slow process, taking about an hour in total to complete. The essenece of this dish is you slowly cook arborio rice with chicken stock. You add a little bit, stir until its fully absored, then add a little more, stir, and repeat this process until it's fully cooked. The reason why arborio rice is used is because it has a high starch content, which helps to create a thick, creamy "sauce" for the risotto, as well as prevent it from becoming mushy. The mushrooms were cooked in a seperate pan and added in at the very end. 
 
