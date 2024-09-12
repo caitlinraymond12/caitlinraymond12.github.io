@@ -22,9 +22,9 @@ This is one of my favorite dishes I've made. I made everything from scratch, inc
 **The naan making process**
 
 <br/><img src='/images/Cooking/naan1.JPG'>
-<img src='/images/Cooking/naan2.JPG'>
-<br/><img src='/images/Cooking/naan3.JPG'style='float:left;'>
-<img src='/images/Cooking/naan4.JPG' style='float:left;'>
+<br/><img src='/images/Cooking/naan2.JPG'>
+<br/><img src='/images/Cooking/naan3.JPG'>
+<br/><img src='/images/Cooking/naan4.JPG'>
 
 
 
