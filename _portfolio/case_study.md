@@ -1,6 +1,6 @@
 ---
 title: "Data Analysis Case Study"
-excerpt: "What type of customer make up casual riders and annual members?. <br/><img src='/images/SuperCalc.png'>"
+excerpt: "What type of customer make up casual riders and annual members?. <br/><img src='/images/Average Days of Week.png'>"
 collection: portfolio
 ---
 
@@ -376,7 +376,6 @@ Some quick graphs for days of week
 colors <- c("coral2", "darkslategray3")
 
 # count day of week casual/member
-
 ggplot(totaltrips, aes(weekday)) + geom_bar(aes(fill=usertype), position = "dodge")
 
 # average duration casual/member
@@ -389,9 +388,6 @@ totaltrips %>%
   geom_col(position = "dodge")
 
 # average trip duration casual / member 
-
-
-
 totaltrips %>%
   group_by(usertype) %>%
   summarise(average_duration = mean(tripduration)) %>%
@@ -399,11 +395,17 @@ totaltrips %>%
   ggplot(aes(x = usertype, y = average_duration)) +
   geom_col(aes(fill = colors))
 
-
-
 ```
 
-//add in pictures 
+Counts for each day of week divided by Casual Riders and Annual Members 
+<br/><img src='/images/Count Days of Week.png'>
+
+Average for each day of week divded by Casual Riders and Annual Members 
+<br/><img src='/images/Average Days of Week.png'>
+
+Average duration for Casual Riders and Annual Members
+<br/><img src='/images/Average Trip Duration.png'>
+
 
 ## Act
 
