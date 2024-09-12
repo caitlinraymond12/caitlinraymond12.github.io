@@ -54,7 +54,6 @@ This data will help investigate the difference between casual riders and annual 
 In order to process the data, I will be using RStudio to clean the data, document the cleaning process, and export a new dataset with only clean and correct values. 
 
 ```
-
 #load packages
 library(tidyverse)
 library(readr)
@@ -169,7 +168,6 @@ library(readxl)
 
 #read into variable
 totaltrips <- read_csv("totaltrips.csv")
-
 ```
 
 Trip Duration Stats:
@@ -201,7 +199,6 @@ avg_bday
 
 min_bday <- aggregate(totaltrips$birthyear, list(totaltrips$usertype), "min", na.rm = TRUE)
 min_bday
-
 ```
 
 Weekly Stats:
@@ -221,8 +218,6 @@ weekday_max <- aggregate(totaltrips$tripduration ~ totaltrips$usertype + totaltr
 
 weekday_min <- aggregate(totaltrips$tripduration ~ totaltrips$usertype + totaltrips$weekday,
                            FUN = min)
-
-
 ```
 
 Count Totals:
@@ -293,7 +288,6 @@ member_year_avg = avg_bday[[2]][[2]]
 member_year_min = min_bday[[2]][[2]]
 
 count_dayofweek
-
 ```
 Export Summary Stats as .xlsx File:
 
@@ -367,13 +361,12 @@ totaltrips %>%
   arrange(usertype) %>%
   ggplot(aes(x = usertype, y = average_duration)) +
   geom_col(aes(fill = colors))
-
 ```
 
-Counts for each day of week divided by Casual Riders and Annual Members: 
+**Counts for each day of week divided by Casual Riders and Annual Members:**
 <br/><img src='/images/Count Days of Week.png'>
 
-#### Average for each day of week divded by Casual Riders and Annual Members: 
+**Average for each day of week divded by Casual Riders and Annual Members:**
 <br/><img src='/images/Average Days of Week.png'>
 
 **Average duration for Casual Riders and Annual Members:**
