@@ -33,6 +33,6 @@ Skating has always been a huge part of my life, I've been skating since I was 10
 
  Cooking is something else that I've very passionate about. I've been known to spend all day in my kitchen creating every single part of a dish until it's perfect. I love making foods from all different cultures and learning about the history behind each dish. I think that the best way to learn about a culture and the people is through the food!
 
-## Porfolio
+## Portfolio
 
 Check out some cool projects I've been working on both in and out of the classroom!

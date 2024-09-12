@@ -1,6 +1,6 @@
 ---
 title: "Data Analysis Case Study"
-excerpt: "What type of customer make up casual riders and annual members? <br/><img src='/images/Average Days of Week.png'>"
+excerpt: "How To Convert Casual Riders to Annual Members? <br/><img src='/images/Average Days of Week.png'>"
 collection: portfolio
 ---
 
@@ -119,7 +119,6 @@ unique(totaltrips$usertype)
 totaltrips <- totaltrips %>% 
   mutate(usertype = recode(usertype, "Subscriber" = "member",
                            "Customer" = "casual"))
-
 
 #create "weekday" columns for days of the week
 totaltrips$weekday <- weekdays(as.Date(totaltrips$start_time))
@@ -297,11 +296,7 @@ Export Summary Stats as .xlsx File:
 Rows <- c("Max Duration", "Mean Duration", "Min Duration", "Female" , "Male" , "Youngest Year" , "Average Year", "Oldest Year")
 Member_Stats <- c(member_max, member_mean, member_min, member_female_count, member_male_count, member_year_max, member_year_avg, member_year_min)
 Casual_Stats <- c(casual_max, casual_mean, casual_min, casual_female_count, casual_male_count, casual_year_max, casual_year_avg, casual_year_min)
-
 Stats <- data.frame(Rows, Member_Stats, Casual_Stats)
-
-View(Stats)
-
 write_xlsx(Stats, "Member_Casual.xlsx")
 ```
 
@@ -314,7 +309,7 @@ What are some key differences between the two groups?
 * Members tended to be slightly older with a median age of 32 while casual riders had a median age of 28.**
 * The youngest member was 5 years old. 
 * The youngest casual rider was 16 years old.
-* Members utilized Cyclistic more often than casual members every day of the week, but used it a significant amount more during the weekdays. 
+* Members utilized Cyclistic a significant amount more than casual riders during the weekdays. 
 * Member usage goes down during the weekends and up during the weekdays. 
 * Casual rider usage goes down during the weekdays and up during the weekends.
 * Casual riders had a significantly longer average duration for every day of the week.  
@@ -397,4 +392,4 @@ The ad should:
 * Target males, people that live in the city, families.
 * Emphasis the convience of taking a quick ride. 
 
-The ad should target males because males are more likely to be annual members. It should also target people that live in the city, because these are people that have a reason to get around the city on a daily basis, not just on the weekends. Because they live there, they likely have friends within the city, favorite stores in the city, and work within the city. All of these things they would easily be able to get to by using these bikes. Finally, the ad should target people that are slightly older, and even families. These are the people with careers that could take these bikes to work to use these bikes to go out with their children. The ad should also emphasis how easily annual members can take out a bike, get somewhere quick, and not worry about the daily bike fees or the stress of driving through traffic. Annual members tended to have a shorter average trip duration, which shows how these bikes could be a casual part of a member's daily life.
+The ad should target males because males are more likely to be annual members. It should also target people that live in the city, because these are people that have a reason to get around the city on a daily basis, not just on the weekends. Because they live there, they likely have friends within the city, favorite stores in the city, and work within the city. All of these things they would easily be able to get to by using these bikes. Finally, the ad should target people that are slightly older, and even families. These are the people with careers that could take these bikes to work, or use these bikes to go out with their children. The ad should also emphasis how easily annual members can take out a bike, get somewhere quick, and not worry about the daily bike fees or the stress of driving through traffic. Annual members tended to have a shorter average trip duration, which shows how these bikes could be a casual part of a member's daily life.
