@@ -13,7 +13,7 @@ This case study focuses on a fictional bike sharing company called Cyclistic, an
 
 In this case study, I will be following the Ask, Prepare, Process, Analyze, Share, and Act steps in the data analysis process. 
 
-# Ask
+## Ask
 
 What is the problem that is trying to be solved?
 
@@ -33,7 +33,7 @@ The insights found can drive business decisions as we can use that information t
 
 Key stakeholders to keep in mind during this process are the Cyclistic marketing analytics team and the Cyclistic executive team.
 
-# Prepare 
+## Prepare 
 
 The data that has been used in the following study has been collected over the course of 2019,  and has been made publicly available by Motivate International Inc.
 
@@ -53,11 +53,11 @@ Birthyear
 
 Each dataset contains hundreds of thousands of rows of data, and although there are some missing / incorrect values, the majority of data is present and reliable. 
 
-#Process
+## Process
 
 In order to process the data, I will be using RStudio to clean the data, document the cleaning process, and export a new dataset with only clean and correct values. 
 
-```{r}
+```
 
 #load packages
 library(tidyverse)
@@ -171,7 +171,7 @@ The only nulls were found in the gender and birth year row. We won’t remove th
 
 
 
-# Analyze 
+## Analyze 
 
 The focus of this stage is to dive deep into the data. It is important to find relationships between the data and mark anything unusual that could be useful to solving the business problem and answering the question: 
 
@@ -179,7 +179,7 @@ In what ways do annual members and casual riders differ and why would a casual r
 
 To begin, load in appropriate packages and read totaltrips.csv into a variable.
 
-```{r}
+```
 #load packages
 library(tidyverse)
 library(readr)
@@ -194,7 +194,7 @@ totaltrips <- read_csv("totaltrips.csv")
 ```
 
 Get statistics on duration for casual riders and annual members.
-```{r}
+```
 # Overall stats for all trips 
 summary(totaltrips)
 
@@ -212,7 +212,7 @@ min_usertype
 
 Get statistics on age for casual riders and annual members. 
 
-```{r}
+```
 # Age stats for casual riders and members 
 max_bday <- aggregate(totaltrips$birthyear, list(totaltrips$usertype), "max", na.rm = TRUE)
 max_bday
@@ -356,15 +356,7 @@ Casual riders had a significantly longer average duration for every day of the w
 
 
 
-
-
-
-
-
-
-
-
-# Share
+## Share
 
 
 What is all this information trying to tell us?
@@ -413,5 +405,5 @@ totaltrips %>%
 
 //add in pictures 
 
-# Act
+## Act
 
