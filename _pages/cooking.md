@@ -49,7 +49,7 @@ Rice was brought into Northern Italy and Northern Spain by the Arabs in around t
 ## Tomato Confit with Burratta, Arugula, and Pesto Sandwich 
 
 <br/><img src='/images/Cooking/Confit.JPG'>
-<br/><img src='/images/Cooking/Sandwhich.JPG'>
+<br/><img src='/images/Cooking/Sandwich.JPG'>
 
 
 This sandwich had so many different parts and actually ended up taking a really long time, but in the end it was so worth it and so much fun to make. I started early by preparing the tomato garlic confit, which is essentially just slow cooking something in oil. Then I made the pesto, and finally toasted the bread and assembled it all. The burrata was good but it made it a little messy, and if I had to do it again I would use fresh mozzeralla instead.
