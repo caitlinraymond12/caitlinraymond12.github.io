@@ -17,7 +17,7 @@ Hey! My name is Caitlin Raymond, I'm a sophmore at the University of Miami and I
 
 ### Music 
 
-I love music and am always trying to expose myseslf to as much as possible. I try to listen to at least one new album a week, and have it on repeat while I'm studying, walking to class, driving, everything. If I am doing an activty where I can listen to music, I will. Music is such an incredible way to connect with people, and I love sharing songs with freinds and listening to their recommendations. 
+I love music and am always trying to expose myseslf to as much as possible. I try to listen to at least one new album a week, and I will have it on repeat while I'm studying, walking to class, driving, everything. If I am doing an activty where I can listen to music, I will. Music is such an incredible way to connect with people, and I love sharing songs with freinds and listening to their recommendations. 
 
 
 ### Skating 
