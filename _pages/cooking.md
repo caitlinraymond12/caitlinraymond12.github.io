@@ -13,11 +13,11 @@ Check out some of the recent dishes I've been cooking for my family and friends:
 
 
 
-## Chicken Tikki Masala with Garlic Naan
+## Chicken Tikka Masala with Garlic Naan
 
 <br/><img src='/images/Cooking/Tikki Masla.JPG'>
 
-This is one of my favorite dishes I've made. I made everything from scratch, including the garlic naan! The chicken tikki masala was suprisingly easy. First you marinate the chicken in yogurt and various spices, once the marinade is done you sear it, then finsih cooking it in the sauce. To make the sauce, it's simply onion, garlic, tomato pasta, cream, and various spices. The spices used are cumin, garam masla, tumeric, corriander, cayenne pepper, and ground ginger.  
+This is one of my favorite dishes I've made. I made everything from scratch, including the garlic naan! The chicken tikka masala was suprisingly easy. First you marinate the chicken in yogurt and various spices, once the marinade is done you sear it, then finsih cooking it in the sauce. To make the sauce, it's simply onion, garlic, tomato pasta, cream, and various spices. The spices used are cumin, garam masla, tumeric, corriander, cayenne pepper, and ground ginger.  
 
  The garlic naan, however,  was quite the journey. I made the dough a few different times because I kept messing up the proportions. And when I finally got the dough right, making the small circles and cooking them without tearing them became the issue. But eventually, I got one that turned out good, and after that I had the strategy down. This was a really fun dish to make and tasted amazing.
 
@@ -32,7 +32,7 @@ It took a while, and after many, many, failed attempts, I was finally able to ma
 
 
 **Quick History:**
-Chicken tikki masala is one of the dishes people often assosicate with indian cuisine, but the story of its origin is heavily debated. One widely accepted story of its origin was that it was created by a Bengali chef in Gasglow, Scotland. A customer ordered chicken curry, but complained it was too dry, so the chef, Ali Ahmed Aslam, combined the chicken curry with a can of tomato soup, and created the Chicken Tikki Masala dish. However, some others believe it was simply derived from its sister dish, butter chicken, in northen India. 
+Chicken tikka masala is one of the dishes people often assosicate with indian cuisine, but the story of its origin is heavily debated. One widely accepted story of its origin was that it was created by a Bengali chef in Gasglow, Scotland. A customer ordered chicken curry, but complained it was too dry, so the chef, Ali Ahmed Aslam, combined the chicken curry with a can of tomato soup, and created the Chicken Tikka Masala dish. However, some others believe it was simply derived from its sister dish, butter chicken, in northen India. 
 
 
 ## Mushroom Risotto
