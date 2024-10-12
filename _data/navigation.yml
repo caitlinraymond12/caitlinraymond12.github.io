@@ -4,11 +4,14 @@ main:
   - title: "Portfolio"
     url: /portfolio/
 
-  - title: "Resume"
-    url: /files/Resume.pdf
-    
   - title: "Cooking"
     url: /cooking/
+
+
+  - title: ##"Resume"
+    url: ##/files/Resume.pdf
+    
+
         
   - title: ##"Music"
     url: ##/music/
