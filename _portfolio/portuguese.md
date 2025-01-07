@@ -78,19 +78,21 @@ struct portugueseword
 
 The english struct contains a pointer to a single portuguese verb that it can be translated to. 
 
-It also contains strings that hold what the word is, "to talk", as well as it conjugated in all the personal tenses. 
-Something about English, is we do actually conjugate, the same as other languages, just not to the same extent. 
+It also contains strings that hold what the word is, "to talk", as well as it conjugated in all the personal tenses.
 
-For example, "I walk" and "She walks". The infinitve of the verb "To Walk" is being conjugated here, "walk" for first person singular, and "walks" for third person singular. However, the conjugation is often the same between different personal tenses, which is why in English we have to use pronouns such as "I", "We", "She", while other languages don't have to. 
+Something interesting about English is we do actually conjugate, just as many other languages do, just not to the same extent. 
+
+For example, "I talk" and "She talks". The infinitve of the verb "To Talk" is being conjugated here, "talk" for first person singular, and "talks" for third person singular. However, the conjugation is often the same between different personal tenses, which is why in English we have to use pronouns such as "I", "We", "She", while other languages don't have to. 
 
 ```
-firstPersonSingular: "walk"
-secondPersonSingular:  "walk"
-thirdPersonSingular: "walks"
-firstPersonPlural: "walk"
-secondPersonPlural:  "walk"
-thirdPersonPlural: "walk"
+firstPersonSingular: "talk"
+secondPersonSingular:  "talk"
+thirdPersonSingular: "talks"
+firstPersonPlural: "talk"
+secondPersonPlural:  "talk"
+thirdPersonPlural: "talk"
 ```
+With the appropiate pronouns these become I talk, you talk, he/she talks, we talk, you all/you guys talk, they talk.
 
 
 
