@@ -289,7 +289,8 @@ For example, if I wanted to use the verb "to go" in the future, it would be:
 * You will go
 * He will go
 * We will go
-* ...
+* You (plural) will go
+* They will go
 
 It always ends in "will go". The same goes for the conditional, becoming "would go" instead. 
 
@@ -312,7 +313,7 @@ What does conjugation mean?
 Conjugating a verb means changing the verb based on who it refers to.
 All verbs in portuguese end in -ar, -er, or -ir. Each of these endings have their own rules of conjugation, based on which person is speaking and which tense they are speaking in. 
 
-#### Present Tense Conjugation:
+**Present Tense Conjugation:**
 
 | Personal Tense  | -ar | -er | -ir |
 |----------|----------|----------|----------|
@@ -340,7 +341,7 @@ If I wanted to say "I say", I would expect to find the *eu* ending for -er verbs
 
 There are three different functions for reading in these 9 files. The first is readenglishsimple(string filename), that reads in the english files for future and conditional. Then there is readenglish(string filename), that reads in the other two english files. The final is readfile(string filename), that reads in all the portuguese files. There are different functions because there are three different ways the files can be formatted. 
 
-#### readenglishsimple(string filename)
+### readenglishsimple(string filename)
 
 This function reads in the simpler english files, the ones that only have the unconjugated form of the verb.
 
@@ -422,7 +423,7 @@ Then, we enter a while loop, only breaking if we reach the end of the file. This
 After the object is created, it is added to the correct hashtable, and added to the englishwords vector. 
 
 
-#### readenglishfile(string filename)
+### readenglishfile(string filename)
 
 This function is used to read the english files that contain all the conjugated tenses. 
 
@@ -513,7 +514,7 @@ Then, it runs through two while loops in a similar way as the *readenglishsimple
 
 Finally, the variables are filled and the *englishword* object is created. It is recorded in its correct hashtable and pushed onto the englishwords vector. 
 
-#### readfile(string filename)
+### readfile(string filename)
 
 This function serves to read in all 5 of the portuguese files. 
 
@@ -739,15 +740,12 @@ void user(string & filename, string & englishfile, string & answer_with)
 
 First, this functions asks the user if they want to answer in english or spanish.
 
-```
-Would You Like to Type Answer in English or Portuguese?
-:
-```
 
  The provided input is set to lowercase, to allow for case insensitivity, and if the answer is "portuguese" or "english", the answer_with variable is set and the function continues. If not, the program tells the user that the input was not valid, and recursively calls itself to restart the function. 
 
 Once the user has selected in which language they would like to answer, they are then prompted to select the tense. 
 
+**Example Output**
 ```
 Would You Like to Type Answer in English or Portuguese?
 : English
@@ -757,7 +755,7 @@ Which Tense Would You Like to Learn?
          * Past Imperfect
          * Simple Future
          * Conditional
-:
+:Present
 ```
 
 The answer is again set to all lowercase, and the correct filename and englishfile name are selected based on the answer choice. 
@@ -885,6 +883,46 @@ void test1()
 }
 ```
 
+**Check Answer Function**
+```cpp
+bool checkanswer(string answer, vector<string> answers)
+{
+    for(int i = 0; i < answers.size(); i++)
+        if(answer == answers[i])
+            return true;
+    return false;
+}
+
+```
+
+This function uses srand(time(0)) and rand() to randomly select two numbers; one number is used to randomly select a portuguese word from the portuguesewords vector, and the other is to randomly select one of the 6 avaiable tenses. 
+
+A vector<string> answers is defined because there can be mulitple correct answers. For example, the word *faz* can mean:
+
+* He does
+* She does
+* You do
+* He makes
+* She makes
+* You make
+
+Therefore there must be a vector of correct answers, not just one.
+
+The variable **conjugated** is used to store the conjugated verb which will be ouput for the user to translate. The variable **correct** is the correct answer(s) that will be added to the answers vector. The variable **answer** is the user's inputted answer.
+
+Then, we enter a switch statement, based on the int c. This will bring us directly to any of the 6 avaliable cases, each representing a different personal tense. First, the variable **conjugated** is filled based on the tense chosen. Then we enter a for statement that runs through each english word that is associated with the randomly chosen portuguese word. For each english word, the correct pronoun is added to the **correct** variable, and it is pushed onto the answers vector. 
+
+Then, the program outputs the **conjugated** variable, and the user must type their answer. The answer is converted to all lowercase, and it is checked against the entries in the answers vector. If it is answered correct, the program outputs "CONGRATS". If not, the user is told they have input an incorrect answer and the correct answer is shown. Further, they are shown the infinitive of the verb and told what it means. 
+
+**Example Output**
+```
+Press Enter to Reveal Answer. Type 'q' To Exit.
+falamos means: we talk
+CONGRATS!
+
+encontram means: they find
+Incorrect. The correct answer is: they meet. The verb encontrar means to meet.
+```
 
 
 ### void test2()
@@ -965,6 +1003,68 @@ void test2()
     }
 }
 ```
+
+**Remove Accent Function**
+
+```cpp
+string remove_accents(string word)
+{
+    string newword = "";
+    for(int i = 0; i < word.size(); i++)
+    {
+
+        if(int(word[i]) == -61)
+        {
+            i++;
+
+            if(word[i] == -83)
+                newword += 'i';
+            if(word[i] == -89)
+                newword += 'c';
+            if(word[i] == -93 || word[i] == -95)
+                newword += 'a';
+        }
+
+        else
+            newword += word[i];
+
+    }
+    return newword;
+}
+```
+
+Again, this function utilizes srand(time(0)) and rand() in order to select two random numbers. The first random number selects a random *englishword* object from the englishwords vector, and the second random number randomly selects a tense. 
+
+An englishword * is set to the randomly selected englishword, and the portugueseword * is set to the portuguese word associated with the selected english word. 
+
+The variable **conjugated** is used to store the conjugated verb which will be ouput for the user to translate. The variable **correct** is the correct answer(s) that will be added to the answers vector. The variable **answer** is the user's inputted answer.
+
+With the second randomly selected number, we enter a switch statement, that takes us directly to our selected tense. In each of the 6 cases, the *conjugated* variable is set to the appropiate prounoun + the appropiate tense. The *correct* variable is set to the corresponding appropiate tense in portuguese. 
+
+The program outputs the conjugated verb and the user must type in the translation in portuguese. A new variable is defined, **correct_no_accents** which removes all accents from the answer that the user input is being checked against. This function is needed because the user is not able to type in accented characters easily while using a regular keyboard. It serves to make the program more user-friendly. The user input is also set to all lowercase. 
+
+User input is checked against the correct answer. If correct a congratulations statement is printed. If wrong, the correct answer (with accents) is shown, and the correct translation of the verb is shown. 
+
+**Example Output**
+```
+Would You Like to Type Answer in English or Portuguese?
+: Portuguese
+Which Tense Would You Like to Learn?
+         * Present
+         * Simple Past
+         * Past Imperfect
+         * Simple Future
+         * Conditional
+: Present
+
+Press Enter to Reveal Answer. Type 'q' To Exit.
+You say means: dizes
+CONGRATS!
+
+We turn means: tornamos
+Incorrect. The correct answer is: viramos. The verb virar means to turn.
+```
+
 
 
 
