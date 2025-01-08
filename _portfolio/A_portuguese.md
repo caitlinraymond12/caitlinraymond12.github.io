@@ -1,6 +1,6 @@
 ---
 title: "Practice Portuguese Verbs"
-excerpt: "Program that allows you to practice conjugated portuguese verbs. <br/><img src='/images/Portugual.png'>"
+excerpt: "Program that allows you to practice conjugating portuguese verbs. <br/><img src='/images/Portugual.png'>"
 collection: portfolio
 ---
 
@@ -9,11 +9,13 @@ collection: portfolio
 
 Why did I create this program? 
 
-I created this program because I love learning new languages. I think its amazing learning what unique phrases different languages have, and how even within a language there are different words and expressions based on the region where it is spoken. I taught myself Spanish in the summer of 2023. How did I do it? I started with the verbs. I first learned how to conjugate the top 100 verbs in the present tense for yo, tu, ella/el/usted, nosotros, ellas/ellos/ustedes. Then I moved onto the preterite, then the past perfect, and I made my way through all the tenses, only studying the verbs. Once I knew the top 100, then the top 300 most used verbs, I began to read sentences, then articles, and eventually books, all started on my basic knowledge of the Spanish verbs.
+I created this program because I love learning new languages. I think its amazing learning what unique phrases different languages have, and how even within a language there are different words and expressions based on the region where it is spoken. I taught myself Spanish in the summer of 2023. How did I do it? I started with the verbs. I first learned how to conjugate the top 100 verbs in the present tense for yo, tu, ella/el/usted, nosotros, ellas/ellos/ustedes. Then I moved onto the preterite, then the past perfect, and I made my way through all the tenses, only studying the verbs. Soon I knew the top 100, then the top 300 most used verbs, I began to read sentences, then articles, and eventually books, all growing from the basic knowledge of the Spanish verbs.
 
-The purpose of explaining my journey with learning Spanish was to highlight how I learned it by focusing on verbs. Learning the verbs and how to conjugate them allowed me to learn Spanish in a very efficent and effective way. So, when I decided that the next language I wanted to tackle was Portuguese, I decided I wanted to do it in the same way, start with the verbs. 
+The purpose of explaining my journey with learning Spanish is to highlight how I learned it by focusing on verbs. Learning the verbs and how to conjugate them allowed me to learn Spanish in a fast, effective way. So, when I decided that the next language I wanted to tackle was Portuguese, I decided to do it in the same way: start with the verbs. 
 
-The issue with this approach, as I found out, is there is no program out there that allows you to just practice Portuguese verbs. When I learned Spanish, I used an app called Ella Verbs, which was for Spanish only. I could not find a program that was as effective that focuses on learning Portuguese verbs only. I knew this was the way I wanted to learn it, so since I couldn't find a suitable program for me online, I created it.  
+The issue with this approach, as I found out, is there is no program out there that allows you to just practice Portuguese verbs. When I learned Spanish, I used an app called Ella Verbs, which was for Spanish only. I could not find a program that was as effective that focuses on learning Portuguese verbs only. I knew this was the way I wanted to learn it, so since I couldn't find a suitable program online, I decided to create it for myself. 
+
+This is one of my favorite things about programming. If there's something I want, I can go out and create it. I don't have to wait for something else to create an idea I already had, or settle for a version of something that I know isn't perfect for me. I have the ability to create great things, so why not use it?
 
 ## Structs and Hashtables
 
@@ -47,7 +49,7 @@ struct portugueseword
 
 ```
 
-The portuguese struct contains a vector of english words. The reason why this is a vector instead of a simple string or a pointer to the english word is because some portuguese verbs mean multiple things in english. For example:
+The portuguese struct contains a vector of english words. The reason why this is a vector instead of a simple string or a pointer to the englishword object is because some portuguese verbs mean multiple things in english. For example:
 
 ```
 Dizer: To talk, to speak
@@ -56,7 +58,7 @@ Fazer: To do, to make
 
 Therefore in order to reflect all of a words meanings, there is a vector of pointers to english words. 
 
-The next part in the struct are strings. These strings have the infinitive of the verb in portuguese, such as "falar", and the next strings have it conjugated in the different personal tenses: 
+The next part in the struct are strings. These strings contain the infinitive of the verb in portuguese, such as "falar", and the following strings have it conjugated in the different personal tenses: 
 
 ```
 firstPersonSingular: "falo"
@@ -297,11 +299,11 @@ It always ends in "will go". The same goes for the conditional, becoming "would 
 So, because the verb doesn't ever conjugate, the file is able to be less complex. 
 
 ```
-"to be"
-"to have"
-"to do"
-"to say"
-"to go"
+to be
+to have
+to do
+to say
+to go
 ```
 
 
@@ -367,43 +369,25 @@ void readenglishsimple(string filename)
         will_would = "would ";
         correct_HT = &english_conditional;
     }
+    string english, conjugated;
+    string firstPersonSingular, secondPersonSingular, thirdPersonSingular,
+           firstPersonPlural, secondPersonPlural, thirdPersonPlural;
 
     while(true)
     {
-        string english, line;
-        string firstPersonSingular, secondPersonSingular, thirdPersonSingular,
-        firstPersonPlural, secondPersonPlural, thirdPersonPlural;
-        getline(file, line);
+        getline(file, english);
         if(file.fail())
             break;
-        istringstream in(line);
-        while(true)
-        {
-            string word;
-            in >> word;
-            int len = word.length() - 1;
-            if(in.fail())
-                break;
 
-             if(word[len] == '"')
-             {
-                word = word.substr(0, len);
-                english += word;
-                firstPersonSingular = will_would + word;
-                secondPersonSingular = will_would + word;
-                thirdPersonSingular = will_would + word;
-                firstPersonPlural = will_would + word;
-                secondPersonPlural = will_would + word;
-                thirdPersonPlural = will_would + word;
-                break;
-             }
+        conjugated = will_would + english.substr(3);
+        firstPersonSingular = conjugated;
+        secondPersonSingular = conjugated;
+        thirdPersonSingular = conjugated;
+        firstPersonPlural = conjugated;
+        secondPersonPlural = conjugated;
+        thirdPersonPlural = conjugated;
 
-            if(word[0] == '"')
-                 word = word.substr(1);
 
-            english = english + word + " ";
-
-        }
         englishword * w = new englishword(english, firstPersonSingular,
         secondPersonSingular, thirdPersonSingular, firstPersonPlural,
         secondPersonPlural, thirdPersonPlural);
@@ -418,9 +402,9 @@ It begins by opening the file and ensuring the file was opened correctly. Then, 
 
 Next, the program checks the filenames. If the file is *english_future.txt*, then the english_future hashtable is selected, and will_would is set to "will ". Otherwise, the english_conditional hashtable is selected, and will_would is set to "would."
 
-Then, we enter a while loop, only breaking if we reach the end of the file. This function continually reads each line of the file into an istringstream object. Then we enter another while loop, where the line is broken down into individual words. It checks for quotation marks, and removes them if they are there. Then, it builds up the english word without the quotation marks, and sets the personal tenses equal to the correct word, and creates a new englishword object with all the correct information. 
+Then, we enter a while loop that continues until the end of the file. It reads the entire line of the file into the variable **english**. Since the conjugation is the same in every personal tense for the future and conditional tenses, the conjugation is set to the variable **conjugated**, and each of the six tenses is then set equal to that variable.
 
-After the object is created, it is added to the correct hashtable, and added to the englishwords vector. 
+Finally, the *englishword* object is created, and it is recorded to the correct hashtable and pushed back onto the global englishwords vector.
 
 
 ### readenglishfile(string filename)
@@ -673,77 +657,91 @@ This functions prompts the user and allows them to personalize how they want to 
 void user(string & filename, string & englishfile, string & answer_with)
 {
     string answer;
-    cout << "Would You Like to Type Answer in English or Portuguese?\n";
-    cout << ": ";
-
-    getline(cin, answer);
-    for(int i = 0; i < answer.size(); i++)
-        answer[i] = tolower(answer[i]);
-    if(answer == "portuguese" || answer == "english")
-        answer_with = answer;
-    else
+    while(true)
     {
-        cout << "Not Valid Answer. Please Type 'English' or 'Portuguese'\n";
-        return user(filename, englishfile, answer_with);
+
+        cout << "Would You Like to Type Answer in English or Portuguese?\n";
+        cout << ": ";
+
+        getline(cin, answer);
+        for(int i = 0; i < answer.size(); i++)
+            answer[i] = tolower(answer[i]);
+        if(answer == "portuguese" || answer == "english")
+        {
+            answer_with = answer;
+            break;
+        }
+        else
+        {
+            cout << "Not Valid Answer. Please Type 'English' or 'Portuguese'\n";
+        }
     }
 
-    cout << "Which Tense Would You Like to Learn?\n";
-    cout << "\t * Present \n\t * Simple Past \n\t * Past Imperfect";
-    cout << "\n\t * Simple Future \n\t * Conditional\n";
-    cout << ": ";
-
-    getline(cin, answer);
-    cout << "\n";
-    for(int i = 0; i < answer.size(); i++)
-        answer[i] = tolower(answer[i]);
-    if(answer.empty())
-        exit(-1);
-    else if(answer == "present")
+    while(true)
     {
-        filename = "portuguese_present.txt";
-        englishfile = "english_present.txt";
+        cout << "Which Tense Would You Like to Learn?\n";
+        cout << "\t * Present \n\t * Simple Past \n\t * Past Imperfect";
+        cout << "\n\t * Simple Future \n\t * Conditional\n";
+        cout << ": ";
+
+        getline(cin, answer);
+        cout << "\n";
+        for(int i = 0; i < answer.size(); i++)
+            answer[i] = tolower(answer[i]);
+        if(answer.empty() || answer == 'q')
+            exit(-1);
+        else if(answer == "present")
+        {
+            filename = "portuguese_present.txt";
+            englishfile = "english_present.txt";
+        }
+
+        else if(answer == "simple past")
+        {
+            filename = "portuguese_simple-past.txt";
+            englishfile = "english_past.txt";
+        }
+
+        else if(answer == "past imperfect")
+        {
+            filename = "portuguese_past-imperfect.txt";
+            englishfile = "english_past.txt";
+        }
+
+        else if(answer == "simple future")
+        {
+            filename = "portuguese_simple-future.txt";
+            englishfile = "english_future.txt";
+        }
+
+        else if(answer == "conditional")
+        {
+            filename = "portuguese_conditional.txt";
+            englishfile = "english_conditional.txt";
+        }
+
+        else
+        {
+            cout << "Not Valid Selection. Select Again or Press Enter To Exit.\n";
+            continue;
+        }
+        break;
     }
 
-    else if(answer == "simple past")
-    {
-        filename = "portuguese_simple-past.txt";
-        englishfile = "english_past.txt";
-    }
-
-    else if(answer == "past imperfect")
-    {
-        filename = "portuguese_past-imperfect.txt";
-        englishfile = "english_past.txt";
-    }
-
-    else if(answer == "simple future")
-    {
-        filename = "portuguese_simple-future.txt";
-        englishfile = "english_future.txt";
-    }
-
-    else if(answer == "conditional")
-    {
-        filename = "portuguese_conditional.txt";
-        englishfile = "english_conditional.txt";
-    }
-
-    else
-    {
-        cout << "Not Valid Selection. Select Again or Press Enter To Exit.\n";
-        return user(filename, englishfile, answer_with);
-    }
-
-    return;
 }
+  
 ```
 
 First, this functions asks the user if they want to answer in english or spanish.
 
 
- The provided input is set to lowercase, to allow for case insensitivity, and if the answer is "portuguese" or "english", the answer_with variable is set and the function continues. If not, the program tells the user that the input was not valid, and recursively calls itself to restart the function. 
+ The provided input is set to lowercase, to allow for case insensitivity, and if the answer is "portuguese" or "english", the answer_with variable is set and the function continues. If not, the program tells the user that the input was not valid, and the question is outputted again.
 
 Once the user has selected in which language they would like to answer, they are then prompted to select the tense. 
+
+The answer is again set to all lowercase, and the correct filename and englishfile name are selected based on the answer choice. 
+
+If the user types something not listed, they will be asked to select again or exit the program, and the question will be outputted again.
 
 **Example Output**
 ```
@@ -758,9 +756,7 @@ Which Tense Would You Like to Learn?
 :Present
 ```
 
-The answer is again set to all lowercase, and the correct filename and englishfile name are selected based on the answer choice. 
-
-If the user types something not listed, they will be asked to select again or exit the program, and the program calls itself recursively. 
+ 
 
 
 ### void test1()

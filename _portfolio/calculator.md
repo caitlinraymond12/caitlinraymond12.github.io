@@ -1,6 +1,6 @@
 ---
 title: "Calculator with Unlimited Magnitude"
-excerpt: "Created with C++ using Windows Powershell. <br/><img src='/images/SuperCalc.png'>"
+excerpt: "Created with C++ using Unix. <br/><img src='/images/SuperCalc.png'>"
 collection: portfolio
 ---
 
