@@ -4,7 +4,7 @@ excerpt: "Created with C++ using Unix. <br/><img src='/images/SuperCalc.png'>"
 collection: portfolio
 ---
 
-## Quick Overview
+## Overview
 I worked on this project over the course of a few months during Spring 2024 as a project for my Data Structures class. The idea of it is to create a calculator that can calculate any number no matter how large, the only limitation being the avaliable memory on the computer you are using. How it works is instead of storing the numbers as integers, which uses 4 bytes of memory space, the numbers are stored as characters, using only 1 byte, and calculations are performed on the numbers using the ASCII value of the character.
 
 
