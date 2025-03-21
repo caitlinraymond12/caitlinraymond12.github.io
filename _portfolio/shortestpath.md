@@ -543,14 +543,14 @@ In order to draw the map, functions from the library given by the professor of t
 
 First, the minimum and maximum coordinates for latitude and longitude were found, which were used to select and appropiate map. This was useful because if I only wanted to go from Miami to Tampa, I don't want a map of the entire United States, I only want a map of that section of Florida. 
 
-Once a map was chosen, it was read and colored in. The maps were binary files, so it was necessary to open them using *fstream map(path, ios::in | ios::binary);* . The first line of the file had how many rows and columns were in this certain file. Once the rows and columns were known, a window of appropiate size was created. 
+Once a map was chosen, it was read and colored in. The maps were binary files, so it was necessary to open them using fstream map(path, ios::in | ios::binary); . The first line of the file had how many rows and columns were in this certain file. Once the rows and columns were known, a window of appropiate size was created. 
 
 Then, the file was read in byte-by-byte and painted in pixel-by-pixel. If the elevation was less than 0, the pixel was painted in blue. Else, it was painted in a color depending on it's elevation, with the higher elevations being lighter green and the lower elevations being darker green. 
 
 Once the base of the map was drawn, it was time to draw the path on top of it. The function takes in a vector of coordinates as a parameter. This vector is read through, drawing a line between each pair of latitiude and longitude it was given. These coordinates are the starting positions of each road that was taken. 
 
 
-### Final 
+## Final 
 
 Once all of these functions were put together, and combined with two more files containing the created data structures headings and definitions, the program was completed!
 
@@ -560,13 +560,13 @@ If your interested in seeing the full program with all the files, head over to m
 
 [Link to view project on GitHub](https://github.com/caitlinraymond12/projects/tree/main/shortest-path-on-map)
 
-### Examples
+## Examples
 
 Below are a few examples of user input and what the program output would be. The output for the directions has been shorted for each example as to not clutter the page. More examples can be found on my GitHub. 
 
 
 
-#### Miami-Seattle
+### Miami-Seattle
 
 Enter Starting City: Miami
 State Choices: AZ FL MO OK TX
@@ -607,7 +607,7 @@ Take I-5 distance of 4.586 miles to intersection #399 0.8 miles away from Seattl
 
 
 
-#### Atlanta-Charleston
+### Atlanta-Charleston
 
 Enter Starting City: Atlanta
 State Choices: GA IL IN KS LA MI MO NE TX
